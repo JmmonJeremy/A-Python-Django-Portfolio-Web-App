@@ -1,7 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>My Portfolio</title>
+    <link rel="stylesheet" href="{% static 'portfolio_builder/css/styles.css' %}">
 </head>
 <body>
 
@@ -13,7 +15,13 @@
         <p><strong>{{ message }}</strong></p>
     {% endif %}
 
-    <p>This is where my projects will go.</p>
+    <h2>My Projects</h2>
+
+    <div>
+        <img src="{% static 'portfolio_builder/images/Bullseye.PNG' %}" 
+            alt="Project 1">
+        <p>Project description here.</p>
+    </div>
 
     <a href="{% url 'contact' %}">Contact Me</a>
 

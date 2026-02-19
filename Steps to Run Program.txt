@@ -1,0 +1,9 @@
+#1 Open "A Python Django Portfolio Web App" folder in VS Code
+#2 To start the virtual environment go to the terminal run the command: 
+    venv\Scripts\activate
+#3 Move to the "personal_portfolio" folder with the command:
+    cd personal_portfolio
+#4 To start the server run the command:
+    python manage.py runserver
+#5 Open the following web address in a browser:
+    http://127.0.0.1:8000/
