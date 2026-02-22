@@ -28,8 +28,9 @@ Instructions for using the software:
 2. Change to the "personal_portfolio" folder with the command: cd personal_portfolio
 3. In the VSCode terminal start the server for the web app by running the command: python manage.py runserver
 4. Open the following web address in a browser: http://127.0.0.1:8000/
-5. Click on the Contact Me button or image, fill out the form, and press the submit button
-6. You should recieve an email with the message that was sent through the form and a success message will appear on the home page
+5. Click on the Project Link button next to a project picture to open a website of or about a project
+6. Click on the Contact Me button or image, fill out the form, and press the submit button
+7. You should recieve an email with the message that was sent through the form and a success message will appear on the home page
 
 ## Development Environment
 
