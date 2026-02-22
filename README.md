@@ -107,6 +107,7 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
+* [ ] Add a link to go back to the home page
 * [ ] Create a larger more visible watermark on the images
 * [ ] Add more projects to the projects secion
 * [ ] Create a production version of this web app
