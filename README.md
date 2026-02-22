@@ -111,4 +111,3 @@ The following items I plan to fix, improve, and/or add to this project in the fu
 * [ ] Create a production version of this web app
 * [ ] Create a user sign in to keep information grouped with the user
 * [ ] Create a form page to be able to make it user friendly to add the information to the web app through a form
-* [ ]
