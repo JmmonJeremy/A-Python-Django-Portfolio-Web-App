@@ -1,30 +1,75 @@
+{% extends "portfolio_builder/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="{% static 'portfolio_builder/css/styles.css' %}">
-</head>
-<body>
 
-    <h1>Welcome to My Portfolio</h1>
+{% block main_info %}
 
-    {% if success %}
-        <h2>Thank you {{ name }}!</h2>
-        <p>Your message:</p>
-        <p><strong>{{ message }}</strong></p>
-    {% endif %}
+    <h1 class="text-nowrap fw-bold">Welcome to My Portfolio</h1>
+    <div class="d-flex align-items-center gap-4">
+        <!-- Self Portrait -->
+        <div>
+            <img src="{% static 'portfolio_builder/images/JeremyRiverside.jpg' %}" alt="Self Portrait" class="img-fluid" style="width: 5in;">
+        </div>
 
-    <h2>My Projects</h2>
-
-    <div>
-        <img src="{% static 'portfolio_builder/images/Bullseye.PNG' %}" 
-            alt="Project 1">
-        <p>Project description here.</p>
+        <!-- Bullseye with Overlay Button -->
+        <div class="position-relative">
+            <!-- Make entire image clickable -->
+            <a href="{% url 'contact' %}">
+                <img src="{% static 'portfolio_builder/images/Bullseye.PNG' %}" alt="Bullseye" class="img-fluid" style="width: 3in;">
+            </a>
+            <!-- Overlay Button -->
+            <a href="{% url 'contact' %}" class="btn btn-primary position-absolute fw-semibold" style="bottom: 25%; left: 10%;">
+                Contact Me
+            </a>
+        </div>
     </div>
+    <!-- Name & Education -->
+    <h2 class="text-nowrap text-danger fw-bold">Name: Jeremy Troy Suchanski</h2>
+    <h3 class="text-nowrap fw-semibold" style=" color: #538332;">Education: Associates Degree in Applied Technology</h3>
+{% endblock %}
 
-    <a href="{% url 'contact' %}">Contact Me</a>
+{% block success_message %}
+    <!-- Confirmation of a Successful Message Sent to Me -->
+    {% if success %}
+    <div class="container my-4">
+        <div class="d-flex  justify-content-center align-items-center" style="gap: 5rem;">            
+            <!-- Image Left -->
+            {% if image_data %}
+            <div class="text-center">
+                
+                <img src="data:image/jpeg;base64,{{ image_data }}" class="img-fluid border border-4 border-dark rounded mw-25" style="max-width: 12rem;">
+                <p class="fw-bold mt-2">Self, Company, or Project Image</p>
+                
+            </div>
+            {% endif %}
+            <!-- Text Right -->
+            <div class="text-center">
+            
+                <h4 class="fw-bold">Thank you {{ name }}!</h4>
+                <p>Your message was successfully sent to me.</p>
+                <p class="fw-semibold" style="margin-top: -1rem;">I will getting back to you soon!</p>
+            
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
 
-</body>
-</html>
-
+{% block projects %}
+    <!-- Projects Section -->
+    <h2 class="mt-4 fw-bold text-primary">My Projects</h2>
+    <div class="row align-items-center mb-4">
+        <!-- Image Column -->
+        <div class="col-md-4">
+            <img src="{% static 'portfolio_builder/images/Space-Zen-Garden.PNG' %}" alt="Project 1" 
+            class="img-fluid rounded" style="border: 1rem solid #198754;">
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-8">
+            <h3>Space Version of Zen Garden</h3>
+            <p class="card-text">I used CSS to change this website to a space theme presentation.</p>
+            <a href="https://jmmonjeremy.github.io/WDD331R-Advanced-CSS-Zen-Garden-Project/" class="btn btn-success fw-semibold" target="_blank">
+                Project Link
+            </a>
+        </div>
+    </div>
+{% endblock %}

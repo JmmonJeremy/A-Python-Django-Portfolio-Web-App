@@ -116,3 +116,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# ------------------------------------------------------------
+# Email configuration (Hotmail/Outlook)
+# ------------------------------------------------------------
+from decouple import config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_USER')          # read from environment
+EMAIL_HOST_PASSWORD = config('EMAIL_PASS')      # your Gmail app password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

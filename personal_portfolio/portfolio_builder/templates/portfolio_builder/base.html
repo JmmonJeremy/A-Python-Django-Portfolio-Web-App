@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> <!-- The following in the tag -->
+    <!-- caused Bootstrap to not be applied: integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> -->
+    
+    <!-- CSS Applied in App -->
+    <link rel="stylesheet" href="{% static 'portfolio_builder/css/styles.css' %}">
+</head>
+<body class="container mt-5">
+
+    <!-- Personal Info & Form Section -->
+    <div style="max-width: min-content; margin: 0 auto; padding: 20px;">
+        {% block main_info %}
+        {% endblock %}
+    </div>
+<hr>
+    <!-- Success Message Section -->    
+    <div class="text-center">
+        {% block success_message %}
+        {% endblock %}
+    </div>
+  
+<hr>
+    <!-- Projects Section -->
+    <div class="row justify-content-center">
+        <div class="col-auto p-3">
+        {% block projects %}
+        {% endblock %}          
+        </div>
+    </div>    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>  <!-- The following in the tag -->
+    <!-- integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
+</body>
+</html>

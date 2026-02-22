@@ -1,22 +1,18 @@
+{% extends "portfolio_builder/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact Form</title>
-    <link rel="stylesheet" href="{% static 'portfolio_builder/css/styles.css' %}">
-</head>
-<body>
+
+{% block main_info %}
 
     <h1>Contact Me</h1>
 
-    <form method="POST">
-        {% csrf_token %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}        
         {{ form.as_p }}
+        <p class="text-nowrap fw-bold">Self Portrait, Company Portrait, or Helpful Project Image</p>
         <button type="submit">Submit</button>
     </form>
 
     <br>
     <a href="{% url 'home' %}">Back to Home</a>
 
-</body>
-</html>
+{% endblock %}

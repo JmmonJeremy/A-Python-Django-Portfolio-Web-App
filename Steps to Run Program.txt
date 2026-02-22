@@ -7,3 +7,33 @@
     python manage.py runserver
 #5 Open the following web address in a browser:
     http://127.0.0.1:8000/
+
+SETTING UP THE EMAIL FOR GMAIL ACCOUNTS:
+#1 Import python-decouple with the command:
+    pip install python-decouple
+#2 Update the settings.py by adding the following to the end of the file:
+    from decouple import config
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = config('EMAIL_USER')          # read from environment
+    EMAIL_HOST_PASSWORD = config('EMAIL_PASS')      # your Gmail app password
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#3 Turn On 2-Step Verification (If not already on):
+    - Go to https://myaccount.google.com/security
+    - Under “How you sign in to Google” Find "2-Step Verification"
+    - If it does not indicate it is on Click 2-Step Verification
+    - Enter your account password to turn in on
+    (You must enable 2FA before Google allows app passwords.)
+#4 Generate a Gmail App Password
+    - Go to https://myaccount.google.com/apppasswords
+    - Sign in with you Gmail password
+    - Under "Your app passwords" enter a name like Mail or Django
+    - Click Generate and copy the password to past in the .env file 
+#5 create a .env file in the main personal_portfolio folder
+    - Add the following two constants to be used
+        EMAIL_USER=
+        EMAIL_PASS=
+    - Paste the password you copied directly after the equals sign for EMAIL_PASS and remove the spaces
+    - Add your Gmail email account directly after the equals sign for EMAIL_USER
